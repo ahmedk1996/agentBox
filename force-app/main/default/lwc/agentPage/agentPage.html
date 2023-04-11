@@ -16,6 +16,16 @@
 
         <template if:true={isAssociateOpen}>
             <c-appoint-agent onchange={handleChange} onclose={closeAssociate} onselected={handleSelected} onsubmit={submitAssociateDetails} options1={options} onoptions={options} options2={options2} value={value} onoptionstwo={optionsTwo} setvalue={selectedValue}></c-appoint-agent>
+        </template>
+
+    </lightning-layout>
+</template>
+
+
+
+
+
+
              <!--
             <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-02" aria-modal="true" aria-describedby="modal-content-id-2" class="slds-modal slds-fade-in-open">
                 <div class="slds-modal__
@@ -84,7 +94,3 @@
                 </div>
             </section>
         -->
-        </template>
-
-    </lightning-layout>
-</template>
