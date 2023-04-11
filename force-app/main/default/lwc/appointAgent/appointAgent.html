@@ -16,7 +16,7 @@
             <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
                 
                 <div style="margin-left:3%;">
-                    <template for:each={options} for:item="item">
+                    <template for:each={options1} for:item="item">
                         <fieldset key={item.value} style="display: block; float: left;">
                             <div class="slds-form-element__control">
                                 <span class="slds-radio">
@@ -40,7 +40,7 @@
                 label="Status"
                 value={value}
                 placeholder="Select Progress"
-                options={optionsTwo}
+                options={options2}
                 onchange={handleChange} ></lightning-combobox>
     
         <p>Selected value is: {value}</p>
