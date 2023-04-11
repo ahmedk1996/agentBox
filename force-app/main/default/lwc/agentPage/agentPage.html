@@ -1,0 +1,84 @@
+<template>
+    <lightning-layout>
+        <lightning-button variant="brand"
+        label="Agent Button"
+        title="Agent Button"
+        onclick={openAgent}></lightning-button>
+
+        <lightning-button variant="brand"
+        label="Associate Button"
+        title="Agent Button"
+        onclick={openAssociate}></lightning-button>
+
+        <template if:true={isAgentOpen}>
+            
+        </template>
+
+        <template if:true={isAssociateOpen}>
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-02" aria-modal="true" aria-describedby="modal-content-id-2" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                    <!-- Modal/Popup Box LWC header here -->
+                    <header class="slds-modal__header">
+                        <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={closeAssociate}>
+                            <lightning-icon icon-name="utility:close"
+                                alternative-text="close"
+                                variant="inverse"
+                                size="small" ></lightning-icon>
+                            <span class="slds-assistive-text">Close</span>
+                        </button>
+                        <h2 id="modal-heading-02" class="slds-text-heading_medium slds-hyphenate">Appoint Associate</h2>
+                    </header>
+                    <!-- Modal/Popup Box LWC body starts here -->
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-2">
+
+                        <div style="margin-left:3%;">
+                            <template for:each={options} for:item="item">
+                                <fieldset key={item.value} style="display: block; float: left;">
+                                    <div class="slds-form-element__control">
+                                        <span class="slds-radio">
+                                            <input name="radiogroup" id={item.value} type="radio" value={item.value} onchange={handleSelected}/>
+                                            <label class="slds-radio__label" for={item.value}>
+                                                <span class="slds-radio_faux"></span>
+                                                <span class="slds-form-element__label">{item.label}</span>
+                                            </label>
+                                        </span>
+                                    </div>
+                                </fieldset>
+                            </template><br/><br/>
+                
+                            <div if:true={selectedValue}>
+                                Selected Vlaue: <b>{selectedValue}</b>
+                            </div>
+                        </div>
+
+                        <lightning-combobox
+                        name="progress"
+                        label="Status"
+                        value={value}
+                        placeholder="Select Progress"
+                        options={optionsTwo}
+                        
+                        onchange={handleChange} ></lightning-combobox>
+            
+                <p>Selected value is: {value}</p>
+
+                        
+                    </div>
+                    <!-- Modal/Popup Box LWC footer starts here -->
+
+                    <footer class="slds-modal__footer">
+                        <button class="slds-button slds-button_neutral" onclick={closeAssociate} title="Cancel">Cancel</button>
+                        <button class="slds-button slds-button_brand" onclick={submitAssociateDetails} title="OK">Submit Associate</button>
+                    </footer>
+                <!--
+                    <footer class="slds-modal__footer slds-clearfix">
+                        <button class="slds-button slds-button_neutral slds-var-m-left_x-small slds-float_right" onclick={closeAgent} title="Cancel">Cancel</button>
+                        <button class="slds-button slds-button_brand slds-var-m-left_x-small slds-float_right" onclick={submitAgentDetails} title="Submit Agent">Submit Agent</button>
+                    </footer>
+                  -->
+                </div>
+            </section>
+        </template>
+
+    </lightning-layout>
+</template>
