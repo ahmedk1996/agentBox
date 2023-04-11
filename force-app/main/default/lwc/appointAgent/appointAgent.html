@@ -30,8 +30,8 @@
                         </fieldset>
                     </template><br/><br/>
         
-                    <div if:true={setvalue}>
-                        Selected Vlaue: <b>{setvalue}</b>
+                    <div if:true={value}>
+                        Selected Vlaue: <b>{value}</b>
                     </div>
                 </div>
 
@@ -40,7 +40,7 @@
                 label="Status"
                 value={value}
                 placeholder="Select Progress"
-                options={options2}
+                options={options2.value}
                 onchange={handleChange} ></lightning-combobox>
     
         <p>Selected value is: {value}</p>

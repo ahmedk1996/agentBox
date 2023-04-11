@@ -5,7 +5,7 @@ export default class AppointAgent extends LightningElement {
     @api options1
     @api options2
     @api value
-    @api setvalue  
+
 
     handleSelected(){
         this.dispatchEvent(new CustomEvent('selected', {details:'works'}));
