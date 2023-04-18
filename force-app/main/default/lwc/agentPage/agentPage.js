@@ -40,7 +40,7 @@ export default class AgentPage extends LightningElement {
         //Add your code to call apex method or do some processing
         this.isAgentOpen = false;
     }
-
+ 
     openAssociate() {
         // to open modal set isModalOpen tarck value as true
         this.isAssociateOpen = true;
